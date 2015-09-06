@@ -1,5 +1,8 @@
 package vickypatel.ca.materialdesignnavigationdrawer;
 
+import android.content.Intent;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,12 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
     String[] titles = {"Inbox", "Starred", "Important", "Settings"};
-    String[] titles2 = {"Help","Contact", "Feedback", "Logout"};
+    String[] titles2 = {"Help", "Contact", "Feedback", "Logout"};
     int[] icons = {R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings};
     int profile = R.drawable.convo;
 
@@ -43,7 +47,7 @@ public class MainActivity extends ActionBarActivity {
         mRecycleView = (RecyclerView) findViewById(R.id.menuRecycleView);
         mRecycleView.setHasFixedSize(true);
 
-        mAdapter = new NavigationAdapter(this,titles,titles2, icons, name, email, profile);
+        mAdapter = new NavigationAdapter(this, titles, titles2, icons, name, email, profile);
         mRecycleView.setAdapter(mAdapter);
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -64,6 +68,17 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+
+
+        Button btn = (Button) findViewById(R.id.collapsingToolbar);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CollapsingToolbar.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
 
     }
 
