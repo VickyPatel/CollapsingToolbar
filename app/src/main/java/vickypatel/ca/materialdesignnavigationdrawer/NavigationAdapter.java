@@ -1,12 +1,14 @@
 package vickypatel.ca.materialdesignnavigationdrawer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by VickyPatel on 2015-08-29.
@@ -98,7 +100,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Vi
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public  class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         int Holderid;
         TextView textView;
@@ -129,6 +131,21 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Vi
                 textView2 = (TextView) itemView.findViewById(R.id.rowText);
                 imageView2 = (ImageView) itemView.findViewById(R.id.rowIcon);
                 Holderid = 3;
+            }
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            System.out.println(getPosition());
+            Toast.makeText(context,getPosition()+"",Toast.LENGTH_LONG).show();
+
+            switch (getPosition()){
+                case 1:
+                    Intent intent = new Intent(context,FloatingActionButton.class);
+                    context.startActivity(intent);
+                    break;
             }
         }
     }

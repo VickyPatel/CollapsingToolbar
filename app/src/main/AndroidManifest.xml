@@ -20,6 +20,10 @@
             android:name=".CollapsingToolbar"
             android:label="@string/title_activity_collapsing_toolbar" >
         </activity>
+        <activity
+            android:name=".FloatingActionButton"
+            android:label="@string/title_activity_floating_action_button" >
+        </activity>
     </application>
 
 </manifest>
