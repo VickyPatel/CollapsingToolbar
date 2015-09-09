@@ -73,7 +73,7 @@ public class FloatingActionButton extends ActionBarActivity implements View.OnCl
         if (v.getId() == R.id.fab) {
 
             Snackbar
-                    .make(findViewById(R.id.fabLayout),
+                    .make(findViewById(R.id.fab),
                             "This is Snackbar",
                             Snackbar.LENGTH_LONG)
                     .setAction("Action", this)

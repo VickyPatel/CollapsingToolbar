@@ -1,21 +1,25 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fabLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="vickypatel.ca.materialdesignnavigationdrawer.FloatingActionButton">
 
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar"></include>
 
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fabContent"
-        android:layout_below="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/app_bar"
+        android:layout_alignLeft="@id/app_bar"
+        android:layout_marginTop="52dp"
+
+       >
 
     </android.support.v7.widget.RecyclerView>
 
@@ -23,13 +27,12 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|right"
         android:layout_marginBottom="20dp"
         android:layout_marginRight="20dp"
+        android:gravity="bottom|right"
         android:src="@drawable/ic_action"
         app:fabSize="normal">
 
     </android.support.design.widget.FloatingActionButton>
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
