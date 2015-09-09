@@ -1,6 +1,7 @@
 package vickypatel.ca.materialdesignnavigationdrawer;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,12 +15,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class FloatingActionButton extends ActionBarActivity {
+public class FloatingActionButton extends ActionBarActivity implements View.OnClickListener {
 
     public Toolbar toolbar;
     RecyclerView mRecycleView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
+    android.support.design.widget.FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,9 @@ public class FloatingActionButton extends ActionBarActivity {
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecycleView.setLayoutManager(mLayoutManager);
+
+        fab = (android.support.design.widget.FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(this);
 
     }
 
@@ -63,10 +68,23 @@ public class FloatingActionButton extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.fab) {
+
+            Snackbar
+                    .make(findViewById(R.id.fabLayout),
+                            "This is Snackbar",
+                            Snackbar.LENGTH_LONG)
+                    .setAction("Action", this)
+                    .show(); // Do not forget to show!
+        }
+    }
+
 
     public class FabAdapter extends RecyclerView.Adapter<FabAdapter.ViewHolder> {
-        String[] titles = {"Inbox", "Starred", "Important", "Settings","Inbox", "Starred", "Important", "Settings","Inbox", "Starred", "Important", "Settings","Inbox", "Starred", "Important", "Settings"};
-        int[] icons = {R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings,R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings, R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings , R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings};
+        String[] titles = {"Inbox", "Starred", "Important", "Settings", "Inbox", "Starred", "Important", "Settings", "Inbox", "Starred", "Important", "Settings", "Inbox", "Starred", "Important", "Settings"};
+        int[] icons = {R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings, R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings, R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings, R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings};
 
         public FabAdapter(Context context) {
         }
@@ -74,7 +92,7 @@ public class FloatingActionButton extends ActionBarActivity {
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_row_navigation_drawer, parent, false);
-            return  new ViewHolder(view);
+            return new ViewHolder(view);
         }
 
         @Override
@@ -88,7 +106,7 @@ public class FloatingActionButton extends ActionBarActivity {
             return titles.length;
         }
 
-        public  class ViewHolder extends RecyclerView.ViewHolder {
+        public class ViewHolder extends RecyclerView.ViewHolder {
 
             TextView textView;
             ImageView imageView;
