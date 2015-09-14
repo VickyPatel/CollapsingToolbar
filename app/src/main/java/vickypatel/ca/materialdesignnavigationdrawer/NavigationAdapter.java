@@ -152,6 +152,11 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Vi
                     context.startActivity(intent);
                     break;
 
+                case 3:
+                    intent = new Intent(context,TabLayoutClass.class);
+                    context.startActivity(intent);
+                    break;
+
             }
         }
     }

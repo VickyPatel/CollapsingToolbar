@@ -25,7 +25,7 @@
             android:label="@string/title_activity_floating_action_button" >
         </activity>
         <activity
-            android:name=".TabLayout"
+            android:name=".TabLayoutClass"
             android:label="@string/title_activity_tab_layout" >
         </activity>
     </application>

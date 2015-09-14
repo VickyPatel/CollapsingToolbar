@@ -14,22 +14,22 @@ import android.widget.Toast;
  */
 public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.ViewHolder> {
 
-    String[] titles = {"Inbox", "Starred", "Important", "Settings"};
+    String[] titles = {"Inbox", "Starred", "Important", "Settings","Inbox", "Starred", "Important", "Settings","Inbox", "Starred", "Important", "Settings","Inbox", "Starred", "Important", "Settings", "Inbox", "Starred", "Important", "Settings"};
     String[] titles2 = {"Help", "Contact", "Feedback", "Logout"};
-    int[] icons = {R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings};
+    int[] icons = { R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings,R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings,R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings,R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings, R.drawable.ic_mail, R.drawable.ic_fav, R.drawable.ic_imp, R.drawable.ic_settings};
     int profile = R.drawable.convo;
 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.header_navigation_drawer, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_row_navigation_drawer, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.textView.setText(titles[position - 1]);
-        holder.imageView.setImageResource(icons[position - 1]);
+        holder.textView.setText(titles[position]);
+        holder.imageView.setImageResource(icons[position]);
     }
 
     @Override
