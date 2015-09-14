@@ -70,15 +70,6 @@ public class MainActivity extends ActionBarActivity {
         mDrawerToggle.syncState();
 
 
-        Button btn = (Button) findViewById(R.id.collapsingToolbar);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CollapsingToolbar.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
-
 
     }
 

@@ -146,6 +146,12 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Vi
                     Intent intent = new Intent(context,FloatingActionButton.class);
                     context.startActivity(intent);
                     break;
+
+                case 2:
+                    intent = new Intent(context,CollapsingToolbar.class);
+                    context.startActivity(intent);
+                    break;
+
             }
         }
     }
