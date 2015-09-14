@@ -24,6 +24,10 @@
             android:name=".FloatingActionButton"
             android:label="@string/title_activity_floating_action_button" >
         </activity>
+        <activity
+            android:name=".TabLayout"
+            android:label="@string/title_activity_tab_layout" >
+        </activity>
     </application>
 
 </manifest>

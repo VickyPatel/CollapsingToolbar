@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     app:layout_collapseMode="pin"
                     app:tabSelectedTextColor="@android:color/white"
-                    app:tabTextColor="#EEE">
+                    app:tabTextColor="#000000">
 
                 </android.support.design.widget.TabLayout>
             </android.support.design.widget.CollapsingToolbarLayout>

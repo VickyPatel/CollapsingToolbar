@@ -34,8 +34,6 @@ public class CollapsingToolbar extends ActionBarActivity {
         setContentView(R.layout.activity_collapsing_toolbar);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
-        toolbar.setTitle("Inbox");
-
         mCoordinator = (CoordinatorLayout) findViewById(R.id.root_coordinator);
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         setSupportActionBar(toolbar);
@@ -48,7 +46,7 @@ public class CollapsingToolbar extends ActionBarActivity {
         mTabLayout.setTabsFromPagerAdapter(mAdapter);
         mTabLayout.setupWithViewPager(mPager);
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-        mCollapsingToolbarLayout.setTitle("Collapsing Toolbar");
+//        mCollapsingToolbarLayout.setTitle("Collapsing Toolbar");
     }
 
     @Override
@@ -93,34 +91,34 @@ public class CollapsingToolbar extends ActionBarActivity {
             Bundle arguments = getArguments();
             int pageNumber = arguments.getInt(ARG_PAGE);
             RecyclerView recyclerView = new RecyclerView(getActivity());
-//            recyclerView.setAdapter(new NavigationAdapter(getActivity()));
-//            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setAdapter(new ViewPagerAdapter());
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             return recyclerView;
         }
 
     }
 
-    public class MyPagerAdapter extends FragmentStatePagerAdapter {
-
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            CollapsingToolbar.MyFragment myFragment = CollapsingToolbar.MyFragment.newInstance(position);
-            return myFragment;
-        }
-
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return "Tab " + (position + 1);
-        }
-    }
 }
 
+class MyPagerAdapter extends FragmentStatePagerAdapter {
+
+    public MyPagerAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        CollapsingToolbar.MyFragment myFragment = CollapsingToolbar.MyFragment.newInstance(position);
+        return myFragment;
+    }
+
+    @Override
+    public int getCount() {
+        return 0;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return "Tab " + (position + 1);
+    }
+}
