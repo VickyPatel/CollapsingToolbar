@@ -7,21 +7,25 @@
     android:orientation="vertical"
     tools:context="vickypatel.ca.materialdesignnavigationdrawer.FloatingActionButton">
 
-    <include
-        android:id="@+id/app_bar"
-        layout="@layout/app_bar"></include>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/fabContent"
+    <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/app_bar"
-        android:layout_alignLeft="@id/app_bar"
-        android:layout_marginTop="52dp"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar"></include>
 
-       >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fabContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/app_bar"
+            android:layout_alignTop="@id/app_bar"
+            >
+        </android.support.v7.widget.RecyclerView>
 
-    </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
